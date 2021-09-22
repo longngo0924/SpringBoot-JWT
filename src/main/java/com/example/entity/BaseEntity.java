@@ -23,21 +23,30 @@ import lombok.Setter;
 @MappedSuperclass
 @EntityListeners(AuditingEntityListener.class)
 public abstract class BaseEntity implements Serializable {
-    private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
 
-    private String deleted;
+	private String deleted;
 
-    @CreatedDate
-    private Date createdAt;
+	@CreatedDate
+	private Date createdAt;
 
-    @LastModifiedDate
-    private Date updatedAt;
+	@LastModifiedDate
+	private Date updatedAt;
 
-    private Long createdBy;
+	private Long createdBy;
 
-    private Long updatedBy;
+	private Long updatedBy;
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
 }
